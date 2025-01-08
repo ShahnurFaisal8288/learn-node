@@ -11,7 +11,6 @@ const generateToken = (payload) => {
 const signUp = async (req, res, next) => {
     try {
         const body = req.body;
-
         // Validate userType
         if (!['0', '1'].includes(body.userType)) {
             return res.status(400).json({

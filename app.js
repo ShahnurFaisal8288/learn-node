@@ -1,12 +1,14 @@
 require('dotenv').config({path:`${process.cwd()}/.env`})
 const express = require('express');
 const authRouter = require('./route/authRoute');
+const contactRouter = require('./route/contactRoute');
 const app = express();
 app.use(express.json());
 
 
 //all routes will be here
 app.use('/api/v1/auth',authRouter);
+app.use('/api',contactRouter);
 
 app.use('*',(req, res, next) => {
     res.status(404).json({
